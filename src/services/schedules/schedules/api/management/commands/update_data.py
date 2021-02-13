@@ -18,10 +18,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         force = options['f']
-        print(args)
-        return
-
-
         self.load_degrees()
         self.load_semester_data(args)
 
@@ -32,17 +28,22 @@ class Command(BaseCommand):
             return
 
         degrees = [
-            ('Física',9)
-            ('Matematicas', 8)
-            ('Biologia', 8)
-            ('Ciencias de la computacion',8)
-            ('Ciencias de la tierra',8)
-            ('Actuaria',8)
+            ('Actuaria',8),
+            ('Biologáa', 8),
+            ('Ciencias Ambientales',8),
+            ('Ciencias de la Computación',8),
+            ('Ciencias de la Tierra',8),
+            ('Física',9),
+            ('Física Biomédica',8),
+            ('Manejo Sustentable de Zonas Costeras',8),
+            ('Matemáticas', 8),
+            ('Matemáticas Aplicadas', 8),
+            ('Neurociencias', 8),
         ]
 
         for data in degrees:
             deg = Degree(name=data[0], num_periods=data[1])
-            deg.save()
+            #deg.save()
 
     def load_semester_data(self, *args):
         name = '2021-2'
