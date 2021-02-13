@@ -15,4 +15,4 @@ from api.models import Subject
 class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
-        fields = ['name']
+        fields = ['id','name']
