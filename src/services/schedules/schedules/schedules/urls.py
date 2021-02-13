@@ -20,9 +20,11 @@ from api import views
 
 router = DefaultRouter()
 router.register(r'subjects', views.SubjectViewSet)
+router.register(r'degrees', views.DegreeViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('admin/', admin.site.urls)
 ]
 
 #urlpatterns = [
