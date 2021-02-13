@@ -54,3 +54,5 @@ class Lesson(models.Model):
     subject_option = models.ForeignKey(SubjectOption, on_delete=models.CASCADE)
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
     day = models.CharField(max_length=20, choices=DAYS)
+    time_ini = models.TimeField(null=False, blank=False)
+    time_end = models.TimeField(null=False, blank=False)

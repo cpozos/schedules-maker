@@ -6,7 +6,6 @@ class Command(BaseCommand):
     # Show this when the user types help
     help = "Updates the data from the page"
 
-
     def add_arguments(self, parser):
 
         # Optional parameters
@@ -14,7 +13,6 @@ class Command(BaseCommand):
             '--f', 
             type=bool, 
             help='force to update')
-
 
     def handle(self, *args, **options):
 
@@ -44,12 +42,18 @@ class Command(BaseCommand):
 
         for data in degrees:
             deg = Degree(name=data[0], num_periods=data[1])
+            self.load_subjects_for_degree(deg.id)
             #deg.save()
 
-    def load_semester_data(self, *args):
-        name = '2021-2'
+    def load_subjects_for_degree(self, degree_id):
+        """
+        Add subjects associated to the degree to Subject table and to DegreeSubject
+        If subject already exists, it skips it.
+        """
+        pass
 
-
-
-
-
+    def load_semester_lessons(self, semester_id):
+        semester_id = '2021-2'
+        subject = ''
+        professor = ''
+        day = ''
