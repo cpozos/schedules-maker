@@ -15,6 +15,7 @@ class Command(BaseCommand):
             type=bool, 
             help='force to update')
 
+
     def handle(self, *args, **options):
 
         force = options['f']
@@ -47,7 +48,6 @@ class Command(BaseCommand):
 
     def load_semester_data(self, *args):
         name = '2021-2'
-
 
 
 
