@@ -21,6 +21,20 @@ class Professor(models.Model):
     name = models.CharField(max_length=50, blank=False, null=False, unique=True)
     is_assistant = models.BooleanField(default=False)
 
+    def save(self, *args, **kwargs):
+
+        # Remove extra spaces
+        if self.name:
+            name = str(self.name)
+            name = name.strip()
+            self.name = " ".join(name.split())
+
+        super(Professor, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+    
+
 class SubjectOption(models.Model):
     SEMESTERS = [
         (1,'2021-2'), 

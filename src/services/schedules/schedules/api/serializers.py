@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Subject, Degree
+from api.models import Subject, Degree, Professor
 
 #class SubjectSerializer(serializers.Serializer):
 #    name = serializers.CharField(required=True, allow_blank=False, max_length=200)
@@ -22,3 +22,8 @@ class DegreeSerializer(serializers.ModelSerializer):
         depth = 1
         model = Degree
         fields = ['id','name', 'num_periods', 'subjects']
+
+class ProfessorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Professor
+        fields = ['id', 'name', 'is_assistant']
